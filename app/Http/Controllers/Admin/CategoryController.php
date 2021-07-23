@@ -37,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request, Category $category)
     {
          Category::create($request->all());
-         return redirect()->route('admin.categories.index');
+         return redirect()->route('admin.categories.index')->with('info','¡Se ha creado una nueva categoria! ');
     }
 
     /**
@@ -72,7 +72,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->all());
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('info2','¡Se ha modificado la categoria! ');
     }
 
     /**
@@ -84,6 +84,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('info3','¡Se ha eliminado la categoria! ');;
     }
 }

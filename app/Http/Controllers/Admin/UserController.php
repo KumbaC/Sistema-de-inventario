@@ -47,7 +47,7 @@ class UserController extends Controller
         event(new Registered($user = $creator->create($request->all())));
 
         //$this->guard->login($user);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('info','¡Se creo un nuevo usuario!');
     }
 
     /**
@@ -83,7 +83,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->roles()->sync($request->roles);
-       return redirect()->route('admin.users.index',compact('user'));
+       return redirect()->route('admin.users.index',compact('user'))->with('info2','¡Se le asigno un nuevo role al usuario! ');
     }
 
     /**
@@ -95,6 +95,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('info3','¡El usuario fue eliminado con exito! ');
     }
 }

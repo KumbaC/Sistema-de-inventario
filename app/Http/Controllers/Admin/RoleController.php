@@ -42,7 +42,7 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.roles.index', $role);
+        return redirect()->route('admin.roles.index', $role)->with('info','¡Se creo un nuevo role!');
     }
 
     /**
@@ -81,7 +81,7 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('admin.roles.index', $role);
+        return redirect()->route('admin.roles.index', $role)->with('info2','¡Se ha modificado el role!');
     }
 
     /**
@@ -93,6 +93,6 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->with('info3','¡Se ha eliminado el role!');
     }
 }

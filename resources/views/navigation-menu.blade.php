@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-yellow-400 border-b border-yellow-300">
+<nav x-data="{ open: false }" class="bg-red-600 border-b border-red-300">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,14 +6,14 @@
                 <!-- Logo -->
                 <div class="flex items-center flex-shrink-0">
                     <a href="/">
-                        <x-jet-application-mark class="block w-auto h-9" />
+                      <img src="/storage/image/logo.webp" style="height: 50px;">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 @foreach($categories as $categoria)
-                 <x-jet-nav-link href="{{route('products.category',$categoria)}}" >{{$categoria->name}}</x-jet-nav-link>
+                 <a class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-white transition border-b-2 border-transparent hover:text-white hover:border-white focus:outline-none focus:text-gray-400 focus:border-gray-300'" href="{{route('products.category',$categoria)}}">{{$categoria->name}}</a>
                 @endforeach
                 </div>
             </div>
@@ -164,8 +164,8 @@
                 @endif
 
                 <div>
-                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="text-base font-medium text-white">{{ Auth::user()->name }}</div>
+                    <div class="text-sm font-medium text-gray-200">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 

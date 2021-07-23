@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="max-w-4xl px-2 py-8 mx-auto sm:px-6 lg:px-12">
+    <div class="max-w-4xl px-2 py-8 mx-auto sm:px-6  lg:px-12">
         <h1 class="text-3xl font-bold text-center upercase">Categoria: {{$category->name}}</h1>
     @foreach($products as $product)
     <article class="mb-8 overflow-hidden bg-white rounded-lg shadow-lg">
-        <img class="object-cover object-center w-full h-72" @if($product->image) src="{{Storage::url($product->image->url)}}" @else src='/storage/image/box.png' @endif>
+        <img class="object-center mx-auto sm:px-5 lg:px-25 sm:ml-40 md:ml-40 lg:ml-60 w-80 h-80 flex" @if($product->image) src="{{Storage::url($product->image->url)}}" @else src='/storage/image/box.png' @endif>
         <div class="px-6 py-4">
 
             <div class="px-6 pt-4 pb-2">

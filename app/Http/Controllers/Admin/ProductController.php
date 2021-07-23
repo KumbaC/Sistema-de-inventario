@@ -29,6 +29,7 @@ class ProductController extends Controller
     {
         $category = Category::pluck('name', 'id');
         return view('admin.products.create', compact('category'));
+
     }
 
     /**
@@ -47,7 +48,8 @@ class ProductController extends Controller
                'url' => $url
            ]);
          }
-         return redirect()->route('admin.products.index', $product);
+
+         return redirect()->route('admin.products.index', $product)->with('Exito','¡El producto fue creado con exito! ');
        }
 
 
@@ -72,6 +74,7 @@ class ProductController extends Controller
     {
         $category = Category::pluck('name', 'id');
         return view('admin.products.edit',compact('category', 'product'));
+        
     }
 
     /**
@@ -100,7 +103,7 @@ class ProductController extends Controller
               ]);
           }
     }
-    return redirect()->route('admin.products.index', $product);
+    return redirect()->route('admin.products.index', $product)->with('Exito2','¡Se ha actualizado el producto con exito! ');
 }
 
     /**
@@ -113,6 +116,6 @@ class ProductController extends Controller
     {
 
         $product->delete();
-        return redirect('/');
+        return redirect()->route('products.show')->with('Exito3', '¡Se elimino de manera exitosa el producto!');
     }
 }
